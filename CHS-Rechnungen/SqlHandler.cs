@@ -12,30 +12,38 @@ namespace CHS_Rechnungen
     {
         public static List<List<string>> Select(string query)
         {
-            var dbCon = DBConnection.Instance();
-            var rows = new List<List<string>>();
-
-            if (dbCon.IsConnect())
+            try
             {
-                using (var cmd = new MySqlCommand(query, dbCon.Connection))
-                using (var result = cmd.ExecuteReader())
+                var dbCon = DBConnection.Instance();
+                var rows = new List<List<string>>();
+
+                if (dbCon.IsConnect())
                 {
-                    while (result.Read())
+                    using (var cmd = new MySqlCommand(query, dbCon.Connection))
+                    using (var result = cmd.ExecuteReader())
                     {
-                        var row = new List<string>();
-
-                        for (int i = 0; i < result.FieldCount; i++)
+                        while (result.Read())
                         {
-                            // Wandelt alles in String um (auch INT, DATETIME, NULL usw.)
-                            row.Add(result.IsDBNull(i) ? "" : result[i].ToString());
-                        }
+                            var row = new List<string>();
 
-                        rows.Add(row);
+                            for (int i = 0; i < result.FieldCount; i++)
+                            {
+                                // Wandelt alles in String um (auch INT, DATETIME, NULL usw.)
+                                row.Add(result.IsDBNull(i) ? "" : result[i].ToString());
+                            }
+
+                            rows.Add(row);
+                        }
                     }
                 }
-            }
 
-            return rows;
+                return rows;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
         }
 
         public static void Post(string query)
