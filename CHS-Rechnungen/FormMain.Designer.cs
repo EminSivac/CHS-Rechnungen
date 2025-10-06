@@ -40,7 +40,7 @@
             panelRight.BackColor = Color.White;
             panelRight.Location = new Point(207, 12);
             panelRight.Name = "panelRight";
-            panelRight.Size = new Size(900, 600);
+            panelRight.Size = new Size(960, 680);
             panelRight.TabIndex = 0;
             // 
             // btnDashboard
@@ -88,7 +88,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
-            ClientSize = new Size(1206, 641);
+            ClientSize = new Size(1184, 861);
             Controls.Add(btnRechnungen);
             Controls.Add(btnEinstellungen);
             Controls.Add(btnStammdaten);

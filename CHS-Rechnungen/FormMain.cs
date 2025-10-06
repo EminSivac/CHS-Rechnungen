@@ -8,11 +8,6 @@ namespace CHS_Rechnungen
         public FormMain()
         {
             InitializeComponent();
-
-            var result = SqlHandler.Select("SELECT * FROM zeiterfassungen WHERE mitarbeiter_id = 1");
-            Helper.ShowAsTable(result);
-
-            SqlHandler.Post("INSERT INTO `Mitarbeiter` (`UID`, `Vorname`, `Nachname`) VALUES (NULL, 'Diana', 'Lenz')");
         }
 
         private void LoadUserControl(UserControl uc)

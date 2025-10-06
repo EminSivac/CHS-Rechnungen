@@ -440,9 +440,9 @@
             label22.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label22.Location = new Point(10, 13);
             label22.Name = "label22";
-            label22.Size = new Size(108, 32);
+            label22.Size = new Size(185, 32);
             label22.TabIndex = 42;
-            label22.Text = "Vorlagen";
+            label22.Text = "Nummernkreise";
             // 
             // UcEinstellungen
             // 
@@ -491,7 +491,7 @@
             Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "UcEinstellungen";
-            Size = new Size(1280, 769);
+            Size = new Size(960, 680);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -44,7 +44,7 @@
             // 
             // btnNeuesAngebot
             // 
-            btnNeuesAngebot.Location = new Point(186, 3);
+            btnNeuesAngebot.Location = new Point(3, 86);
             btnNeuesAngebot.Name = "btnNeuesAngebot";
             btnNeuesAngebot.Size = new Size(177, 77);
             btnNeuesAngebot.TabIndex = 3;
@@ -59,7 +59,7 @@
             Controls.Add(btnNeuesAngebot);
             Controls.Add(btnNeueRechnung);
             Name = "UcDashboard";
-            Size = new Size(1280, 769);
+            Size = new Size(960, 680);
             ResumeLayout(false);
         }
 

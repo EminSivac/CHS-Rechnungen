@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace CHS_Rechnungen
 {
     public class SqlHandler
     {
-        public static List<List<string>> Select(string query)
+        public static DataTable Select(string query)
         {
             try
             {
@@ -19,25 +20,13 @@ namespace CHS_Rechnungen
 
                 if (dbCon.IsConnect())
                 {
-                    using (var cmd = new MySqlCommand(query, dbCon.Connection))
-                    using (var result = cmd.ExecuteReader())
+                    using (var da = new MySqlDataAdapter(query, dbCon.Connection))
                     {
-                        while (result.Read())
-                        {
-                            var row = new List<string>();
-
-                            for (int i = 0; i < result.FieldCount; i++)
-                            {
-                                // Wandelt alles in String um (auch INT, DATETIME, NULL usw.)
-                                row.Add(result.IsDBNull(i) ? "" : result[i].ToString());
-                            }
-
-                            rows.Add(row);
-                        }
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
                     }
                 }
-
-                return rows;
             }
             catch (Exception ex)
             {

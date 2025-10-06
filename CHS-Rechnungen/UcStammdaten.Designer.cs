@@ -1,8 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CHS_Rechnungen
 {
@@ -26,50 +28,53 @@ namespace CHS_Rechnungen
 			base.Dispose(disposing);
 		}
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
-			btnNeueRechnung = new Button();
-			btnNeuesAngebot = new Button();
-			SuspendLayout();
-			// 
-			// btnNeueRechnung
-			// 
-			btnNeueRechnung.Location = new Point(3, 3);
-			btnNeueRechnung.Name = "btnNeueRechnung";
-			btnNeueRechnung.Size = new Size(177, 77);
-			btnNeueRechnung.TabIndex = 2;
-			btnNeueRechnung.Text = "Neue Rechnung";
-			btnNeueRechnung.UseVisualStyleBackColor = true;
-			// 
-			// btnNeuesAngebot
-			// 
-			btnNeuesAngebot.Location = new Point(186, 3);
-			btnNeuesAngebot.Name = "btnNeuesAngebot";
-			btnNeuesAngebot.Size = new Size(177, 77);
-			btnNeuesAngebot.TabIndex = 3;
-			btnNeuesAngebot.Text = "Neues Angebot";
-			btnNeuesAngebot.UseVisualStyleBackColor = true;
-			// 
-			// UcDashboard
-			// 
-			AutoScaleDimensions = new SizeF(7F, 15F);
-			AutoScaleMode = AutoScaleMode.Font;
-			Controls.Add(btnNeuesAngebot);
-			Controls.Add(btnNeueRechnung);
-			Name = "UcStammdaten";
-			Size = new Size(1280, 769);
-			ResumeLayout(false);
-		}
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        /// 
 
-		#endregion
+        private TabControl tabControl1;
+        private DataGridView dgvKunden;
+        private DataGridView dgvArtikel;
+        private DataGridView dgvFirma;
 
-		private Button btnNeueRechnung;
-		private Button btnNeuesAngebot;
-	}
+        private void InitializeComponent()
+        {
+
+            tabControl1 = new TabControl();
+            tabControl1.Dock = DockStyle.Fill;
+
+            // --- Tab Kunden ---
+            TabPage tabKunden = new TabPage("Kunden");
+            dgvKunden = new DataGridView { Dock = DockStyle.Fill, ReadOnly = true, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill };
+            tabKunden.Controls.Add(dgvKunden);
+
+            // --- Tab Artikel ---
+            TabPage tabArtikel = new TabPage("Artikel");
+            dgvArtikel = new DataGridView { Dock = DockStyle.Fill, ReadOnly = true, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill };
+            tabArtikel.Controls.Add(dgvArtikel);
+
+            // --- Tab Firma ---
+            TabPage tabFirma = new TabPage("Firma");
+            dgvFirma = new DataGridView { Dock = DockStyle.Fill, ReadOnly = true, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill };
+            tabFirma.Controls.Add(dgvFirma);
+
+            // Tabs hinzufügen
+            tabControl1.TabPages.Add(tabKunden);
+            tabControl1.TabPages.Add(tabArtikel);
+            tabControl1.TabPages.Add(tabFirma);
+
+            Controls.Add(tabControl1);
+            Size = new Size(960, 680);
+        }
+
+
+
+        #endregion
+
+        private ListView listView1;
+    }
 }
